@@ -1,0 +1,179 @@
+﻿
+<!DOCTYPE html><html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="project.css">
+    <script  src="project.js" ></script>
+    <script src="project2.js"></script>
+</head>
+<body>
+    <div style="padding:0px 0px 30px 0px"> <h1 style="text-align:center">Product Purchase form</h1> </div>
+    <div class="row">
+        <div class="col-75">
+            <div class="container">
+                <form action="/action_page.php">
+                    <div class="row">
+                        <div class="column">
+                            <h3>Billing Address</h3>
+                            <div class="row">
+                                <div class="colin">
+                                    <label for="fname"><i class="fa fa-user"></i> First Name</label>
+                                    <input type="text" id="fname" name="firstname" placeholder="Full Name" onblur="validateFirstName();" required>
+                                </div>
+                                <div class="colin">
+                                    <label for="lname"><i class="fa fa-user"></i> Last Name</label>
+                                    <input type="text" id="lname" name="lastname" placeholder="Full Name" onblur="validateLastName();" required>
+                                </div>
+                            </div>
+                            <p id="namevalid" style="color:red"></p>
+                            <label for="email"><i class="fa fa-envelope"></i> Email</label>
+                            <input type="email" id="email" name="email" placeholder="abc@example.com" onblur="validateEmail();" required>
+                            <p id="emailvalid" style="color:red"></p>
+                            <label for="mobile">Mobile Number</label>
+                            <input type="text" id="mobile" placeholder="xxxxxxxxxx" pattern="[0-9]{10}" onblur="validateNumber();" title="10-digit Mobile number" required>
+                            <p id="numbervalid" style="color:red"></p>
+                            <label for="adr"><i class="fa fa-address-card-o"></i> Address</label>
+                            <input type="text" id="adr" name="address" placeholder="542 W. 15th Street">
+                            <label for="city"><i class="fa fa-institution"></i> City</label>
+                            <input type="text" id="city" name="city" placeholder="Hyderabad">
+
+                            <div class="row">
+                                <div class="col-50">
+                                    <label for="state">State</label>
+                                    <input type="text" id="state" name="state" placeholder="Telangana">
+                                </div>
+                                <div class="col-50">
+                                    <label for="zip">Pin-code</label>
+                                    <input type="text" id="zip" name="zip" placeholder="xxxxxx" pattern="[0-9]{6}" onblur="validateCode();" title="6-digit Pincode" required>
+                                </div>
+                            </div>
+                            <p id="codevalid" style="color:red"></p>
+                        </div>
+
+                        <div class="column">
+                            <h3>Payment</h3>
+
+                            <label for="fname">Accepted Cards</label>
+                            <div class="icon-container">
+                                <img src="icons.jpg" id="card"></img><br />
+                            </div>
+                            <label for="cards">Payment Method</label>
+                            <table>
+                                <tr style="padding: 0px 0px 20px 0px">
+                                    <td>
+                                        <input type="radio" style="padding:0px 0px 20px 0px" name="paymentMethod" /><span style="padding:0px 10px 10px 10px">Credit Card</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <input type="radio" style="padding:0px 0px 15px 0px" name="paymentMethod" /> <span style="padding:0px 10px 10px 10px">Debit Card</span>
+                                    </td>
+                                </tr>
+                            </table>
+                            <br />
+                            <label for="cname">Name on Card</label>
+                            <input type="text" id="cname" name="cardname" placeholder="Name" required>
+                            <label for="ccnum">Credit card number</label>
+                            <input type="text" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444" onblur="validateCard();" title="12-digit Card number" required>
+                            <label for="expmonth">Exp Month</label>
+                            <input type="text" id="expmonth" name="expmonth" placeholder="September" required>
+
+                            <div class="row">
+                                <div class="col-50">
+                                    <label for="expyear">Exp Year</label>
+                                    <input type="text" id="expyear" name="expyear" placeholder="2018" min="2020" max="2030" onblur="validateYear();" required>
+                                </div>
+                                <div class="col-50">
+                                    <label for="cvv">CVV</label>
+                                    <input type="password" id="cvv" name="cvv" placeholder="352" pattern="[0-9]{3}" onblur="validatePin();" title="3-digit secret Pin" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column">
+                            <div class="contain">
+
+                                <table>
+                                    <tr>
+                                        <td style="text-align:center"> <h4>Cart</h4></td>
+                                        <td>      </td>
+                                        <td>
+                                            <span class="price" style="color:black">
+                                                <i class="fa fa-shopping-cart"></i>
+                                                <b>4</b>
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <input type="checkbox" id="c1" onclick="calcPrice();" />
+                                            <a>Product 1</a>
+                                        </td>
+                                        <td>    </td>
+                                        <td>
+                                            <p>$<span class="price" id="v1" value="15">15</span></p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <input type="checkbox" id="c2" onclick="calcPrice();" />
+                                            <a>Product 2</a>
+                                        </td>
+                                        <td>   </td>
+                                        <td>
+                                            <p>$<span class="price" id="v2" value="5">5</span></p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <input type="checkbox" id="c3" onclick="calcPrice();" />
+                                            <a>Product 3</a>
+                                        </td>
+                                        <td>   </td>
+                                        <td>
+                                            <p>$<span class="price" id="v3" value="8">8</span></p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <input type="checkbox" id="c4" onclick="calcPrice();" />
+                                            <a>Product 4</a>
+                                        </td>
+                                        <td>    </td>
+                                        <td>
+                                            <p>$<span class="price" id="v4" value="2">2</span></p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <p id="price" style="text-align:center"><b>Total</b> </p><span class="price" style="color:black">
+                                        </td>
+                                        <td>   </td>
+                                        <td>
+                                            <p><b>$</b><span id="totVal"><b>0</b></span></p>
+                                        </td>
+                                    </tr>
+
+                                </table>
+
+                            </div>
+
+                            <div>
+                                <p> <strong id="error">hbhbhvdbsjbsnfvbbnmmbnbvh</strong></p>
+                                <p> <strong id="order">Thankyou<br />Order Placed !!!</strong></p>
+                            </div>
+                            
+
+                        </div>
+                    </div>
+                    <label>
+                        <input type="checkbox" checked="checked" name="sameadr"> Shipping address same as billing
+                    </label>
+                    <button type="button" value="Continue to checkout" class="btn" onclick="placeOrder();">Order Now</button>
+                </form>
+            </div>
+        </div>
+
+
+    </div>
+</body>
+</html>
